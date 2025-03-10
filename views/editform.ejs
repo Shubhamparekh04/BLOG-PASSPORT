@@ -1,0 +1,68 @@
+<%- include("./partials/header.ejs")%>
+<main class="p-3 mt-5">
+  <form
+    class="w-50 mt-5 mx-auto"
+    action="/update/<%= singleBlog.id %>"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        required
+        value="<%=singleBlog.title%>"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Current Image</label>
+      <img
+        width="200px"
+        src="/<%=singleBlog.image%>"
+        alt="<%singleBlog.title%>"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Update Image</label>
+      <input type="file" class="form-control" id="image" name="image" />
+    </div>
+
+    <input type="hidden" value="<%= singleBlog.image%>" name="oldImage" />
+
+    <div class="mb-3">
+      <label for="content" class="form-label">Content</label>
+
+      <textarea
+        name="content"
+        id="content"
+        class="form-control"
+        rows="8"
+        required
+      >
+      <%=singleBlog.content%>
+    </textarea
+      >
+    </div>
+
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        name="username"
+        required
+        value="<%=singleBlog.username%>"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</main>
+
+<%- include("./partials/footer.ejs")%>

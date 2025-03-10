@@ -1,0 +1,54 @@
+<%- include("./partials/header.ejs")%>
+
+<main class="p-3 mt-5">
+  <form class="w-50 mt-5 mx-auto" action="" method="post"  enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Image</label>
+      <input
+        type="file"
+        class="form-control"
+        id="image"
+        name="image"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="content" class="form-label">Content</label>
+
+      <textarea
+        name="content"
+        id="content"
+        class="form-control"
+        rows="8"
+        required
+      ></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        name="username"
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</main>
+
+<%- include("./partials/footer.ejs")%>
