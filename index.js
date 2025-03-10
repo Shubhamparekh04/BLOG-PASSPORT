@@ -4,7 +4,6 @@ const indexRouter = require("./router/indexRouter");
 const redirectMiddleware = require("./middleware/redirectMiddleware");
 
 
-const cookieParser = require('cookie-parser');
 
 const port = 8089;
 const app = express();
@@ -15,7 +14,6 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use(express.static("public"));
 
 
-app.use(cookieParser());
 
 app.use(redirectMiddleware);
 app.use("/", indexRouter);

@@ -16,11 +16,8 @@ module.exports.registerUser = async (req, res) => {
 module.exports.checkLogin = async (req, res) => {
   try {
     let cred = await credModel.findOne({ username: req.body.username });
-    console.log(cred.password, req.body.password);
-    if (cred.password === req.body.password) {
 
-      res.cookie("userId",cred.id);
-      
+    if (cred.password === req.body.password) {
       res.redirect("/clientHomepage");
     } else {
       console.log("invalid password...!");
