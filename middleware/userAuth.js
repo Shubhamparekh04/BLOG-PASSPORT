@@ -1,9 +1,8 @@
-const userAuth = (req, res, next) => {
-  if (req.cookies.userId) {
-    next();
-  } else {
-    res.redirect("/login");
+const userPassportAuth = (req, res, next) => {
+  if (!req.isAuthenticated()) {
+    return res.redirect("/login");
   }
+  next();
 };
 
-module.exports = userAuth;
+module.exports = userPassportAuth;

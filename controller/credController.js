@@ -13,18 +13,22 @@ module.exports.registerUser = async (req, res) => {
   }
 };
 
-module.exports.checkLogin = async (req, res) => {
-  try {
-    let cred = await credModel.findOne({ username: req.body.username });
+// module.exports.checkLogin = async (req, res) => {
+//   try {
+//     let cred = await credModel.findOne({ username: req.body.username });
 
-    if (cred.password === req.body.password) {
-      res.redirect("/clientHomepage");
-    } else {
-      console.log("invalid password...!");
-      res.redirect("/login");
-    }
-  } catch (error) {
-    res.redirect("/login");
-    console.log(error.message);
-  }
+//     if (cred.password === req.body.password) {
+//       res.redirect("/clientHomepage");
+//     } else {
+//       console.log("invalid password...!");
+//       res.redirect("/login");
+//     }
+//   } catch (error) {
+//     res.redirect("/login");
+//     console.log(error.message);
+//   }
+// };
+
+module.exports.login = (req, res) => {
+  return res.redirect("/login");
 };
